@@ -27,6 +27,17 @@ type Result struct {
  */
 func Query(query string, size int, start int) ([]Result, error){
 		// Currently having TLS issues using the IP, and HTTP via IP redirects to domain
+
+		// @TODO test for stuff that don't work :kek:
+		if query == ""{
+			return nil, errors.New("please enter a Lucene query string")
+		}
+
+		if size == 0 {
+			return nil, errors.New("size is 0")// why make unnecessary API calls.
+		}
+
+
 		transportConfig := &http.Transport{
 			TLSClientConfig:  &tls.Config{
 				InsecureSkipVerify: true,
@@ -35,7 +46,7 @@ func Query(query string, size int, start int) ([]Result, error){
 		client := &http.Client{Transport: transportConfig}
 
 		//url := "https://scylla.sh/search"
-		url := "https://44.235.17.188/search"
+		url := "https://44.235.17.188/search" // remove when domain is fixed.
 		payload := fmt.Sprintf("%s?q=%s&size=%d&start=%d",url, query, size, start)
 
 		//fmt.Println(payload)
@@ -47,7 +58,8 @@ func Query(query string, size int, start int) ([]Result, error){
 		}
 
 		if res.StatusCode != http.StatusOK{
-				errors.New("returned a non OK header")
+			// maybe just return the response body as the error
+				errors.New("returned a non OK header, check your query")
 		}
 
 		var result []Result
