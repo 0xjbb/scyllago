@@ -14,3 +14,7 @@ results, err := scyllago.Query("username:jb", 10, 0)
 		fmt.Printf("%#v\n", values)
 	}
 ```
+
+# Contribute
+
+Theres not much to do but if you find a bug or whatever and feel like fixing it then make a pull request.
