@@ -17,4 +17,4 @@ results, err := scyllago.Query("username:jb", 10, 0)
 
 # Contribute
 
-Theres not much to do but if you find a bug or whatever and feel like fixing it then make a pull request.
+There's not much to do but if you find a bug or whatever and feel like fixing it then make a pull request.
