@@ -1,6 +1,17 @@
 # scyllago
 Simple Go Module for the scylla.sh API
 
+# Installation
+run 
+`go get github.com/0xjbb/scyllago`
+add 
+```go
+imports(
+	"github.com/0xjbb/scyllago"
+)
+```
+done.
+
 # Examples
 
 ```go
