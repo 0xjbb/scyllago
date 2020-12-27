@@ -4,7 +4,7 @@ Simple Go Module for the scylla.sh API
 # Installation
 run 
 `go get github.com/0xjbb/scyllago`
-add 
+then add 
 ```go
 import(
 	"github.com/0xjbb/scyllago"
