@@ -1,18 +1,28 @@
-# scyllago
-Simple Go Module for the scylla.sh API
+# ScyllaGo
 
-# Installation
-run 
-`go get github.com/0xjbb/scyllago`
-then add 
-```go
-import(
-	"github.com/0xjbb/scyllago"
-)
+ScyllaGo is a very simple Go Module for the scylla.sh API
+## Getting Started
+
+### Installation 
+
+This assumes you already have a working Go environment, if not please see
+[this page](https://golang.org/doc/install) first.
+
+```sh
+go get github.com/0xjbb/scyllago
 ```
-done.
 
-# Examples
+### Usage
+
+Import the package into your project.
+
+```go
+import "github.com/0xjbb/scyllago"
+```
+
+### Examples
+
+Below is a simple example to get you started.
 
 ```go
 results, err := scyllago.Query("username:jb", 10, 0)
