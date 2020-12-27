@@ -6,7 +6,7 @@ run
 `go get github.com/0xjbb/scyllago`
 add 
 ```go
-imports(
+import(
 	"github.com/0xjbb/scyllago"
 )
 ```
