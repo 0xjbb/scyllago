@@ -37,7 +37,6 @@ func Query(query string, size int, start int) ([]Result, error){
 			return nil, errors.New("size is 0")// why make unnecessary API calls.
 		}
 
-
 		transportConfig := &http.Transport{
 			TLSClientConfig:  &tls.Config{
 				InsecureSkipVerify: true,
@@ -67,18 +66,3 @@ func Query(query string, size int, start int) ([]Result, error){
 		//err := json.Unmarshal(data, &result)
 		return result, err
 }
-/**
-// Simple usuage example.
-func main(){
-	test, err := Query("username:jb", 10, 0)
-
-	if err != nil{
-		log.Fatal(err)
-	}
-
-	for _, it := range test {
-		fmt.Printf("%#v\n", it)
-	}
-
-}
- */
