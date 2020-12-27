@@ -7,7 +7,9 @@ import (
 	"fmt"
 	"net/http"
 )
-
+/**
+	@TODO Maybe change from struct to map, idk I think maps are faster?
+ */
 type Result struct {
 	Id     string
 	Fields struct {
