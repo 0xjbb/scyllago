@@ -44,8 +44,8 @@ func Query(query string, size int, start int) ([]Result, error){
 		}
 		client := &http.Client{Transport: transportConfig}
 
-		//url := "https://scylla.sh/search"
-		url := "https://44.235.17.188/search" // remove when domain is fixed.
+		//url := "https://44.235.17.188/search" // remove when domain is fixed.
+		url := "https://scylla.sh/search" // domain is fixed.
 		payload := fmt.Sprintf("%s?q=%s&size=%d&start=%d",url, query, size, start)
 
 		//fmt.Println(payload)
