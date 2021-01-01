@@ -36,6 +36,23 @@ results, err := scyllago.Query("username:jb", 10, 0)
 	}
 ```
 
+```go
+results, err := scyllago.Query("username:jb", 10, 0)
+
+	if err != nil{
+		log.Fatal(err)
+	}
+
+	for _, values := range results {
+		fmt.Println("Username: ", values.Fields.Username)
+		fmt.Println("Password: ", values.Fields.Password)
+		fmt.Println("Domain: ", values.Fields.Domain)
+		fmt.Println("Email: ", values.Fields.Email)
+		fmt.Println(" ")
+	}
+```
+
+
 ## Contribute
 
 There's not much to do but if you find a bug or whatever and feel like fixing it then make a pull request.
