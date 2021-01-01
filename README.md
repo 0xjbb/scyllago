@@ -44,11 +44,12 @@ results, err := scyllago.Query("username:jb", 10, 0)
 	}
 
 	for _, values := range results {
+		fmt.Println("Ip: ", values.Fields.Ip)
 		fmt.Println("Username: ", values.Fields.Username)
 		fmt.Println("Password: ", values.Fields.Password)
 		fmt.Println("Domain: ", values.Fields.Domain)
 		fmt.Println("Email: ", values.Fields.Email)
-		fmt.Println(" ")
+		fmt.Println("Passhash: ", values.Fields.Passhash)
 	}
 ```
 
