@@ -45,7 +45,6 @@ func Query(query string, size int, start int) ([]Result, error) {
 	url := "https://scylla.sh/search" // domain is fixed.
 	payload := fmt.Sprintf("%s?q=%s&size=%d&start=%d", url, query, size, start)
 
-	//fmt.Println(payload)
 	res, err := client.Get(payload)
 	defer res.Body.Close()
 
