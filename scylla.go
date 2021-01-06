@@ -26,11 +26,9 @@ type Result struct {
 	@start Record number to start from.
 */
 func Query(query string, size int, start int) ([]Result, error) {
-	// Currently having TLS issues using the IP, and HTTP via IP redirects to domain
 
-	// @TODO test for stuff that don't work :kek:
 	if query == "" {
-		return nil, errors.New("please enter a Lucene query string")
+		return nil, errors.New("please enter a lucene query string")
 	}
 
 	if size == 0 {
@@ -44,7 +42,6 @@ func Query(query string, size int, start int) ([]Result, error) {
 	}
 	client := &http.Client{Transport: transportConfig}
 
-	//url := "https://44.235.17.188/search" // remove when domain is fixed.
 	url := "https://scylla.sh/search" // domain is fixed.
 	payload := fmt.Sprintf("%s?q=%s&size=%d&start=%d", url, query, size, start)
 
@@ -58,11 +55,12 @@ func Query(query string, size int, start int) ([]Result, error) {
 
 	if res.StatusCode != http.StatusOK {
 		// maybe just return the response body as the error
+		// @TODO change to return the API's error message.
 		errors.New("returned a non OK header, check your query")
 	}
 
 	var result []Result
 	err = json.NewDecoder(res.Body).Decode(&result)
-	//err := json.Unmarshal(data, &result)
+
 	return result, err
 }
