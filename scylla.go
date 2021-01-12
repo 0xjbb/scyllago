@@ -50,7 +50,7 @@ func Query(query string, size int, start int) ([]Result, error) {
 	defer res.Body.Close()
 	// @TODO create a message if the API is down
 	if err != nil {
-		errors.New(err.Error())
+		return nil, err
 	}
 	fmt.Println("Status Code: ",res.StatusCode)
 	if res.StatusCode != http.StatusOK {
