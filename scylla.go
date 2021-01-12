@@ -12,6 +12,7 @@ type Result struct {
 	Id     string
 	Fields struct {
 		Username string
+		Name 	 string
 		Password string
 		Email    string
 		Domain   string
@@ -47,7 +48,7 @@ func Query(query string, size int, start int) ([]Result, error) {
 
 	res, err := client.Get(payload)
 	defer res.Body.Close()
-
+	// @TODO create a message if the API is down
 	if err != nil {
 		errors.New(err.Error())
 	}
