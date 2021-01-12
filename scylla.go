@@ -52,11 +52,11 @@ func Query(query string, size int, start int) ([]Result, error) {
 	if err != nil {
 		errors.New(err.Error())
 	}
-
+	fmt.Println("Status Code: ",res.StatusCode)
 	if res.StatusCode != http.StatusOK {
 		// maybe just return the response body as the error
 		// @TODO change to return the API's error message.
-		errors.New("returned a non OK header, check your query")
+		return nil, errors.New("returned a non OK header, check your query")
 	}
 
 	var result []Result
